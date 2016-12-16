@@ -85,10 +85,10 @@
                         <div id="primary-menu-trigger"><i class="fa fa-bars"></i></div>
                         <div id="primary-menu-trigger-close"><i class="fa fa-times"></i></div>
                         <div id="logo">
-                            <a href="/default.aspx?" class="standard-logo">
+                            <a href="/" class="standard-logo">
                                 <img src="/Themes/ShepherdMain/Assets/Images/Shepherd-Logo.png" alt="Canvas Logo">
                             </a>
-                            <a href="/default.aspx?" class="retina-logo">
+                            <a href="/" class="retina-logo">
                                 <img src="/Themes/ShepherdMain/Assets/Images/Shepherd-Logo@2x.png" alt="Canvas Logo">
                             </a>
                         </div>
