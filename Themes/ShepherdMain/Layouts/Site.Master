@@ -1,0 +1,152 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="Rock.Web.UI.RockMasterPage" %>
+<%@ Import Namespace="System.Web.Optimization" %>
+<!DOCTYPE html>
+
+<script runat="server">
+    
+    // keep code below to call base class init method
+
+    /// <summary>
+    /// Raises the <see cref="E:System.Web.UI.Control.Init" /> event.
+    /// </summary>
+    /// <param name="e">An <see cref="T:System.EventArgs" /> object that contains the event data.</param>
+    protected override void OnInit( EventArgs e )
+    {
+        base.OnInit( e );
+    }    
+    
+</script>
+
+<html class="no-js">
+<head runat="server">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta charset="utf-8">
+    <title></title>
+    
+    <script src="<%# ResolveRockUrl("~/Scripts/jquery-1.10.2.min.js" ) %>"></script>
+
+    <!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <asp:ContentPlaceHolder ID="css" runat="server" />
+
+	<!-- Included CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:200,400,500,100,900italic" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="<%# ResolveRockUrl("~~/Styles/bootstrap.css", true) %>"/>
+	<link rel="stylesheet" href="<%# ResolveRockUrl("~~/Styles/theme.css", true) %>"/>
+	<link rel="stylesheet" href="<%# ResolveRockUrl("~/Styles/developer.css", true) %>"/>
+
+    <script src="<%# ResolveRockUrl("~/Scripts/modernizr.js" ) %>" ></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="<%# ResolveRockUrl("~/Content/ExternalSite/Icons/favicon.ico", true) %>">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%# ResolveRockUrl("~/Content/ExternalSite/Icons/touch-icon-ipad-retina.png", true) %>">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%# ResolveRockUrl("~/Content/ExternalSite/Icons/touch-icon-iphone-retina.png", true) %>">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%# ResolveRockUrl("~/Content/ExternalSite/Icons/touch-icon-ipad.png", true) %>">
+    <link rel="apple-touch-icon-precomposed" href="<%# ResolveRockUrl("~/Content/ExternalSite/Icons/touch-icon-iphone.png", true) %>">
+    
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+	                <div class="navbar-header">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                                <Rock:Zone Name="Header" runat="server" />
+                            </div>
+
+                            <div class="col-lg-8 col-md-8">
+                                <div id="top-social">
+                                    <ul>
+                                        <li class="login-zone">
+                                            <Rock:Zone Name="Login" runat="server" />
+                                        </li>
+                                        <li><a href="mailto:social@shepherdchurch.com" class="si-email3" title="social@shepherdchurch.com"><span class="ts-icon"><i class="fa fa-envelope"></i></span><span class="ts-text">social@shepherdchurch.com</span></a></li>
+                                        <li><a href="tel:818 831-9333" class="si-call" title="818.831.9333"><span class="ts-icon"><i class="fa fa-phone"></i></span><span class="ts-text">818.831.9333</span></a></li>
+                                        <li><a href="#" class="si-twitter" title="Twitter"><span class="ts-icon"><i class="fa fa-twitter fa-lg"></i></span><span class="ts-text">Twitter</span></a></li>
+                                        <li><a href="#" class="si-facebook" title="Facebook"><span class="ts-icon"><i class="fa fa-facebook fa-lg"></i></span><span class="ts-text">Facebook</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+	                </div>	
+                </div>
+            </nav>
+
+            <header id="header">
+                <div id="header-wrap">
+                    <div class="clearfix nopadding ">
+                        <div id="primary-menu-trigger"><i class="fa fa-bars"></i></div>
+                        <div id="primary-menu-trigger-close"><i class="fa fa-times"></i></div>
+                        <div id="logo">
+                            <a href="/default.aspx?" class="standard-logo">
+                                <img src="/Themes/ShepherdMain/Assets/Images/Shepherd-Logo.png" alt="Canvas Logo">
+                            </a>
+                            <a href="/default.aspx?" class="retina-logo">
+                                <img src="/Themes/ShepherdMain/Assets/Images/Shepherd-Logo@2x.png" alt="Canvas Logo">
+                            </a>
+                        </div>
+                        
+                        <nav id="primary-menu" class="">
+                            <Rock:Zone Name="Navigation" runat="server" />
+
+                            <div id="top-search">
+                                <a href="#" id="top-search-trigger">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-times"></i>
+                                </a>
+                                <div class="search-form">
+                                    <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+		
+            <asp:ContentPlaceHolder ID="feature" runat="server"></asp:ContentPlaceHolder>
+
+            <asp:ContentPlaceHolder ID="main" runat="server"></asp:ContentPlaceHolder>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+			            <Rock:Zone Name="Footer" runat="server" />
+			        </div>
+		        </div>
+            </div>
+        </footer>
+        
+        <%-- controls for scriptmanager and update panel --%>
+        <asp:ScriptManager ID="sManager" runat="server"/>
+        <asp:UpdateProgress id="updateProgress" runat="server" DisplayAfter="800">
+		        <ProgressTemplate>
+		            <div class="updateprogress-status">
+                        <div class="spinner">
+                          <div class="rect1"></div>
+                          <div class="rect2"></div>
+                          <div class="rect3"></div>
+                          <div class="rect4"></div>
+                          <div class="rect5"></div>
+                        </div>
+                    </div>
+                    <div class="updateprogress-bg modal-backdrop"></div>
+		        </ProgressTemplate>
+        </asp:UpdateProgress>
+
+    </form>
+
+    <script type="text/javascript" src="/Themes/ShepherdMain/Scripts/plugins.js"></script>
+    <script type="text/javascript" src="/Themes/ShepherdMain/Scripts/functions.js"></script>
+
+</body>
+
+</html>
