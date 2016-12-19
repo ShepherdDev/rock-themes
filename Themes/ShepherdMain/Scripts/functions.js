@@ -375,15 +375,7 @@ var SEMICOLON = SEMICOLON || {};
             var topOffsetScroll = 0;
 
             if( ( $body.hasClass('device-lg') || $body.hasClass('device-md') ) && !SEMICOLON.isMobile.any() ) {
-                if( $header.hasClass('sticky-header') ) {
-                    if( $pagemenu.hasClass('dots-menu') ) { topOffsetScroll = 100; } else { topOffsetScroll = 144; }
-                } else {
-                    if( $pagemenu.hasClass('dots-menu') ) { topOffsetScroll = 140; } else { topOffsetScroll = 184; }
-                }
-
-                if( !$pagemenu.length ) {
-                    if( $header.hasClass('sticky-header') ) { topOffsetScroll = 100; } else { topOffsetScroll = 140; }
-                }
+                if( $header.hasClass('sticky-header') ) { topOffsetScroll = 100; } else { topOffsetScroll = 140; }
             } else {
                 topOffsetScroll = 40;
             }
@@ -743,7 +735,7 @@ var SEMICOLON = SEMICOLON || {};
 
                     $topSocialEl.find('a').hover(function () {
                         if( $(this).find('.ts-text').length ) {
-                            var tsTextWidth = $(this).find('.ts-text').outerWidth() + 40;
+                            var tsTextWidth = $(this).find('.ts-text').outerWidth() + 41;
                             $(this).css({width: tsTextWidth});
                         }
                     }, function() {
@@ -782,7 +774,6 @@ var SEMICOLON = SEMICOLON || {};
                 $body.toggleClass('top-search-open');
                 $('#primary-menu ul.primary-menu').toggleClass("show", false);
                 $body.toggleClass('primary-menu-open', false);
-                $pagemenu.toggleClass('pagemenu-active', false);
                 if ($body.hasClass('top-search-open')){
                     $topSearch.find('input').focus();
                 }
@@ -1602,9 +1593,6 @@ var SEMICOLON = SEMICOLON || {};
              $('#primary-menu-trigger-close').click(function() {
                 $body.toggleClass('primary-menu-open');
                 return false;
-            });
-            $pagemenu.find('nav').click(function(e){
-                $body.toggleClass('top-search-open', false);
             });
             if( SEMICOLON.isMobile.any() ){
                 $body.addClass('device-touch');
