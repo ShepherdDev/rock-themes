@@ -67,10 +67,11 @@
                                         <li class="login-zone">
                                             <Rock:Zone Name="Login" runat="server" />
                                         </li>
-                                        <li><a href="mailto:social@shepherdchurch.com" class="si-email3" title="social@shepherdchurch.com"><span class="ts-icon"><i class="fa fa-envelope"></i></span><span class="ts-text">social@shepherdchurch.com</span></a></li>
+                                        <li><a href="mailto:social@shep.cc" class="si-email3" title="social@shep.cc"><span class="ts-icon"><i class="fa fa-envelope"></i></span><span class="ts-text">social@shep.cc</span></a></li>
                                         <li><a href="tel:818 831-9333" class="si-call" title="818.831.9333"><span class="ts-icon"><i class="fa fa-phone"></i></span><span class="ts-text">818.831.9333</span></a></li>
-                                        <li><a href="#" class="si-twitter" title="Twitter"><span class="ts-icon"><i class="fa fa-twitter fa-lg"></i></span><span class="ts-text">Twitter</span></a></li>
-                                        <li><a href="#" class="si-facebook" title="Facebook"><span class="ts-icon"><i class="fa fa-facebook fa-lg"></i></span><span class="ts-text">Facebook</span></a></li>
+                                        <li><a href="https://twitter.com/shepherdchurch" class="si-twitter" title="Twitter"><span class="ts-icon"><i class="fa fa-twitter fa-lg"></i></span><span class="ts-text">Twitter</span></a></li>
+                                        <li><a href="https://www.facebook.com/shepherdchurch/" class="si-facebook" title="Facebook"><span class="ts-icon"><i class="fa fa-facebook fa-lg"></i></span><span class="ts-text">Facebook</span></a></li>
+                                        <li><a href="https://www.instagram.com/shepherdchurch/" class="si-instagram" title="Instagram"><span class="ts-icon"><i class="fa fa-instagram fa-lg"></i></span><span class="ts-text">Instagram</span></a></li>
                                     </ul>
                                 </div>
                             </div>
