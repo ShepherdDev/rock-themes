@@ -2,7 +2,12 @@
 <ul class="primary-menu">
 	{%- for childPage in Page.Pages %}
     <li>
-		<a href="{{ childPage.Url }}">{{ childPage.Title }}</a>
+		<a href="{{ childPage.Url }}">
+			{{ childPage.Title }}
+			{%- if childPage.Description != '' %}
+			<span class="menu-subtitle">({{ childPage.Description }})</span>
+			{%- endif %}
+		</a>
 		{%- if childPage.DisplayChildPages == 'true' and childPage.Pages != empty %}
 		<ul>
 			{%- for grandchildPage in childPage.Pages %}
