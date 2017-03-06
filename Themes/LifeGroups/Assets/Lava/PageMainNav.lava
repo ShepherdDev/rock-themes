@@ -1,0 +1,25 @@
+<div class="mainnav">
+    <ul class="navdrop">
+		{%- for childPage in Page.Pages -%}
+        {%- assign showGrandchildren = 'false' -%}
+        {%- if childPage.DisplayChildPages == 'true' and childPage.Pages != empty -%}
+            {%- assign showGrandchildren = 'true' -%}
+        {%- endif -%}
+
+        <li>
+            {% if showGrandchildren == 'true' %}
+                <span>{{ childPage.Title }}</span>
+                <ul>
+                    {% for grandchildPage in childPage.Pages %}
+                        <li>
+                            <a href="{{ grandchildPage.Url }}">{{ grandchildPage.Title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <a href="{{ childPage.Url }}">{{ childPage.Title }}</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+</div>

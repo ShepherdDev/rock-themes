@@ -1,0 +1,459 @@
+﻿
+// Load Master Styles
+// -------------------------
+@import "../../../Styles/Bootstrap/variables.less";
+@import "../../../Styles/_rock-core.less";
+@import "../../../Styles/_store.less";
+@import "../../../Styles/_rock-variables.less";
+@import "_variables.less";
+@import "_variable-overrides.less";
+@import "_print.less";
+
+
+/*
+    Rock Theme Styles
+
+    1. HTML Overrides
+    2. Bootstrap Overides
+    3. Theme Styling
+    4. Responsive Overrides
+
+*/
+
+// 1. HTML Overrides
+// -------------------------
+
+html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    display: block;
+}
+
+// 2. Bootstrap Overrides
+// -------------------------
+
+.navbar {
+    position: static; // default is relative which causes the dropdowns to go under the other navbars dispite having a higher z-index - JME 9/9/2013
+    // using fontawesome nav toggle button instead of the BS default
+    .navbar-toggle {
+        padding: 6px 10px;
+
+        i.fa-bars {
+            color: @navbar-inverse-toggle-icon-bar-bg;
+        }
+    }
+}
+
+a:hover i.fs {
+    text-decoration: none;
+}
+
+.well {
+    background-color: #dcdcd4;
+}
+
+// 3. Theme Styling
+// -------------------------
+
+.page-icon {
+    display: none;
+}
+
+.page-title {
+    display: inline-block;
+    font: 36px 'Cuprum', arial, serif;
+    text-transform: uppercase;
+    color: #758930;
+    background: #fff;
+    padding: 10px 20px 0px 20px;
+    margin-top: 30px;
+}
+
+.page-container {
+    background-color: #fff;
+    color: #393939;
+    padding: 20px 20px 20px 20px;
+}
+.page-container.titled .panel {
+    background-color: initial;
+}
+
+.page-container > .row > .col-md-9:first-child > .page-main {
+    border-right: 1px solid #e1daca;
+    padding-right: 20px;
+}
+
+.page-container > .row > .col-md-9:last-child > .page-main {
+    border-left: 1px solid #e1daca;
+    padding-left: 20px;
+}
+
+form > header {
+    .page-menu,
+    .login-status {
+        float: right;
+    }
+
+    .navbar {
+        background-color: @header-bg;
+        border: 0;
+    }
+
+    height: 100px;
+    background: #e1daca url('../Assets/Images/top-header.jpg') no-repeat center top;
+}
+
+// homepage items
+#announcement-rotator {
+    margin: 0 -@grid-gutter-width/2 @spacing-lg-px;
+
+    .item {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.announcement-list {
+    .announcement {
+        margin: 0 auto @spacing-lg-px;
+        max-width: 390px;
+    }
+
+    .announcement-title {
+        margin: @spacing-sm-px 0;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+.announcement-detail {
+    img {
+        width: 100%;
+    }
+}
+
+.nav-sub {
+    li {
+        border: 1px solid @gray-lighter;
+        border-radius: @border-radius-base;
+    }
+}
+
+footer {
+    margin-bottom: 50px;
+
+    .footer-message {
+        float: left;
+    }
+
+    .footer-address {
+        float: right;
+    }
+}
+
+#splash.error {
+    background-color: @gray-lighter;
+
+    #content {
+        margin-top: 20px;
+        background-color: @body-bg;
+        border-radius: @border-radius-base;
+        padding: 20px;
+    }
+}
+
+.not-found h2 {
+    font-size: 200px;
+    font-weight: @font-weight-bold;
+    letter-spacing: -5px;
+    line-height: 210px;
+
+    i {
+        color: #F03;
+        font-size: 210px;
+        position: relative;
+        top: -12px;
+    }
+}
+
+/* hide block panels */
+.panel.panel-block {
+    border: 0;
+    box-shadow: none;
+
+    & > .panel-heading {
+        display: none;
+    }
+
+    & > .panel-body {
+        padding: 0;
+
+        .grid.grid-panel {
+            margin: 0;
+        }
+    }
+}
+
+/*------------------------------------*\
+	NAV
+\*------------------------------------*/
+.mainnav {
+  background-color: #7db321;
+	font: 24px 'Cuprum', arial, serif;
+	text-transform: uppercase;
+  text-align: center;
+	color:#ffffff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	z-index: 100;
+	border: 0px solid #dcd4c1;
+  display: block;
+}
+
+.navdrop {
+	width:100%;
+	list-style:none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	z-index:100;
+}
+.navdrop li {
+	margin-right:30px;
+	position:relative;
+	display:inline-block;
+	z-index:100;
+}
+.navdrop li a, .navdrop li span {
+	display:block;
+	padding:5px;
+	color:#ffffff;
+	text-decoration:none;
+	/*text-shadow:1px 1px 1px rgba(0,0,0,0.75);*/ /* Text shadow to lift it a little */
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+}
+.navdrop li span {
+  cursor: default;
+}
+.navdrop li a:hover, .navdrop li:hover span {
+	color:#ffffff;
+	background:#4d6f21; /* Solid colour fall-back */
+	text-decoration:none;
+	background:rgba(77,111,33,0.95); /* It'll look nice semi-transparent */
+}
+
+/*--- DROPDOWN ---*/
+.navdrop ul{
+	list-style:none;
+	position:absolute;
+  text-align: left;
+	left:-9999px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
+	opacity:0; /* Set initial state to transparent */
+	-webkit-transition:0.25s linear opacity; /* Make the dropdown fade-in in Webkit */
+}
+.navdrop ul li{
+	padding-top:0px; /* Introducing a padding between the li and the a give the illusion spaced items */
+	float:none;
+	margin-left:-40px;
+	z-index:100;
+  display: block;
+}
+.navdrop ul a{
+	white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
+	display:block;
+}
+.navdrop li:hover ul{ /* Display the dropdown on hover */
+	left:0; /* Bring back on-screen when needed */
+	opacity:1; /* Fade to opaque */
+	z-index:100;
+}
+.navdrop li:hover a{ /* Set styles for top level when dropdown is hovered */
+	color:#ffffff;
+	background:#4d6f21; /* Solid colour fall-back */
+	background:rgba(77,111,33,0.95); /* It'll look nice semi-transparent */
+	text-decoration:none;
+}
+.navdrop li:hover ul a{ /* Override some top level styles when dropdown is hovered */
+	font: 12px "Lucida Grande", "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color:#ffffff;
+	text-transform: none;
+	text-decoration:none;
+	-webkit-transition:-webkit-transform 0.075s linear;
+}
+.navdrop li:hover ul li a:hover{ /* Set styles for dropdown when items are hovered */
+	background:#3e591a; /* Solid colour fall-back */
+	background:rgba(62,89,26,0.95); /* It'll look nice semi-transparent */
+	text-decoration:none;
+	-moz-transform:scale(1.05);
+	-webkit-transform:scale(1.05);
+}
+
+
+.social-btn-grp {
+    float: right;
+    padding-top: 72px;
+}
+
+.social-btn {
+    display: inline-block;
+    width: 32px;
+    height: 28px;
+}
+.social-btn:hover {
+    background-position: 0 -28px;
+}
+
+.social-fb {
+    background: url('../Assets/Images/SocialMedia-fb.png') no-repeat 0 0;
+}
+
+.social-vimeo {
+    background: url('../Assets/Images/SocialMedia-vimeo.png') no-repeat 0 0;
+}
+
+.social-blog {
+    background: url('../Assets/Images/SocialMedia-blog.png') no-repeat 0 0;
+}
+
+
+/* I WANT TO... */
+.i-want-to-header {
+    text-align: center;
+    font: 48px 'Cuprum';
+    line-height: 48px;
+    margin-bottom: -10px;
+    color: #7db321;
+}
+
+.i-want-to-list {
+    a {
+        span {
+            line-height: normal;
+            vertical-align: middle;
+            display: table-cell;
+        }
+        span:first-child {
+            font-size: 32pt;
+            font-weight: bold;
+            color: #4c6f1a;
+            width: 25px;
+        }
+
+        display: table;
+        height: 70px;
+        width: 100%;
+        color: white;
+        font-family: 'Cuprum';
+        line-height: 70px;
+        font-size: 1.2em;
+        border-top: 1px solid #4c6f1a;
+        text-decoration: none;
+        padding: 0px 15px;
+    }
+    a:first-child {
+        border-top: 0px;
+    }
+    a:hover {
+        background-color: #9dc45e;
+    }
+
+    background-color: #7db321;
+}
+
+
+#zone-login {
+    .login-status {
+        .block-content {
+            visibility: hidden;
+        }
+
+        float: left;
+    }
+    .login-status:hover {
+        .block-content {
+            visibility: visible;
+        }
+    }
+
+    a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        line-height: initial;
+    }
+    li a {
+        background-color: rgba(238, 238, 238, 0.20);
+    }
+    li.dropdown {
+        background-color: #eee;
+    }
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.home-button-grp {
+    margin-top: 20px;
+}
+.home-button > img {
+    display: block;
+    width: 100%;
+}
+.home-button > img.home-button-active {
+    display: none;
+}
+.home-button:hover > img.home-button-active {
+    display: block;
+}
+.home-button:hover > img.home-button-inactive {
+    display: none;
+}
+
+footer hr {
+    display: none;
+}
+
+footer .copy {
+    float: right;
+    text-align: right;
+    font: 12px "Lucida Grande", "Trebuchet MS", Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    color: #4d6f21;
+}
+
+.panel {
+    background-color: @body-bg;
+}
+
+
+// 4. Responsive Overrides
+// -------------------------
+
+// default styling should be for phones 767px or less
+
+// Small devices (tablets, 768px and up)
+@media (min-width: @screen-sm-min) {
+    #announcement-rotator {
+        margin: @spacing-lg-px 0;
+    }
+}
+
+// Medium devices (desktops, 992px and up)
+@media (min-width: @screen-md-min) {
+}
+
+// Large devices (large desktops, 1200px and up)
+@media (min-width: @screen-lg-min) {
+}
+
+
+@import "_css-overrides.less";
